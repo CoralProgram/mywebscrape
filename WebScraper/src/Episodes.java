@@ -15,11 +15,13 @@ public class Episodes {
 		final Document page = Jsoup.connect(URL).get();
 		final Elements table = page.select("div.lister-list");
 		
+		// Traverse all items in lister-item class 
 		for (Element item : table.select("div.lister-item")) {
 				
 			episodeName = item.select("div.lister-item-image img").attr("alt");
 			episodeRating = item.select("div.col-imdb-rating").text().trim();
 			System.out.println(episodeName + ": " + episodeRating);
+			
 		}
 	}	
 }
